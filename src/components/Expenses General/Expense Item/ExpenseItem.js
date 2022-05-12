@@ -1,7 +1,7 @@
 import React from 'react'
 import './ExpenseItem.css'
 import ExpenseDate from '../Expense Date/ExpenseDate'
-import Card from '../Card/Card'
+import Card from '../../UI/Card/Card'
 
 const ExpenseItem = ({ expense }) => {
 
@@ -13,7 +13,7 @@ const ExpenseItem = ({ expense }) => {
             <div className='expense-item__description' >
                 <h2>{title}</h2>
             </div>
-            <div className='expense-item__price' >{amount}</div>
+            <div className='expense-item__price' >${amount}</div>
         </Card>
     )
 }

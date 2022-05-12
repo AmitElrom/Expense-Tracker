@@ -1,4 +1,6 @@
-import Expenses from "./components/Expenses/Expenses";
+import React from "react";
+import Expenses from "./components/Expenses General/Expenses/Expenses";
+import NewExpense from "./components/New Expense Folder/New Expense/NewExpense";
 
 function App() {
 
@@ -24,8 +26,13 @@ function App() {
     },
   ];
 
+  // Alternative
+  // return React.createElement('div', {},
+  //   React.createElement(Expenses, { expenses }))
+
   return (
     <div >
+      <NewExpense />
       <Expenses expenses={expenses} />
     </div>
   );
