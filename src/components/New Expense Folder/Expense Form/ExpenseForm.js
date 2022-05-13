@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Card from '../../UI/Card/Card'
 import './ExpenseForm.css'
 
+import axios from 'axios'
+
 // form management libraries
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -15,7 +17,7 @@ const schema = yup.object().shape({
     date: yup.string().required(`Date ${required}`)
 })
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ onAddExpense }) => {
 
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -27,20 +29,20 @@ const ExpenseForm = () => {
     const changeHandler = (e) => {
         const { name, value } = e.target;
 
-        if (name === 'date') {
-            setNewExpense((newExpense) => {
-                return { ...newExpense, date: new Date(value) }
-            })
-        }
         setNewExpense((newExpense) => {
             return { ...newExpense, [name]: value }
         })
 
-        console.log(newExpense);
     }
 
-    const submitForm = (obj) => {
-        console.log(obj);
+    const submitForm = async (obj) => {
+
+        // send expense via post 
+        const { data } = await axios.post('http://localhost:1000/expenses', obj)
+        console.log(data);
+
+        // lift data up - to Expenses
+        onAddExpense(data)
 
         // delete data from form's inputs
         setValue('title', '')

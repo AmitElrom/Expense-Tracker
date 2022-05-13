@@ -5,11 +5,11 @@ import Card from '../../UI/Card/Card'
 
 const ExpenseItem = ({ expense }) => {
 
-    const { title, amount } = expense
+    const { title, amount, date } = expense
 
     return (
         <Card className='expense-item' >
-            <ExpenseDate date={expense.date} />
+            <ExpenseDate date={date} />
             <div className='expense-item__description' >
                 <h2>{title}</h2>
             </div>

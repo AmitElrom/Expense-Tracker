@@ -1,8 +1,9 @@
 import React from 'react'
 import './ExpenseDate.css'
 
-const ExpenseDate = ({ date }) => {
+const ExpenseDate = ({ date: dateFromExpense }) => {
 
+    const date = new Date(dateFromExpense)
     const month = date.toLocaleString('en-US', { month: 'short' })
     const year = date.toLocaleString('en-US', { year: 'numeric' })
     const day = date.toLocaleString('en-US', { day: 'numeric' })
