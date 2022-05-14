@@ -9,7 +9,7 @@
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
 }
 
-.new-expense input[type="submit"] {
+.new-expense button {
   font: inherit;
   cursor: pointer;
   padding: 1rem 2rem;
@@ -17,23 +17,21 @@
   background-color: #40005d;
   color: white;
   border-radius: 12px;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
 }
 
-.new-expense input[type="submit"]:hover,
-.new-expense input[type="submit"]:active {
+.new-expense button:hover,
+.new-expense button:active {
   background-color: #510674;
   border-color: #510674;
 }
 
-.new-expense input[type="submit"].alternative {
+.new-expense button.alternative {
   color: #220131;
   border-color: transparent;
   background-color: transparent;
 }
 
-.new-expense input[type="submit"].alternative:hover,
-.new-expense input[type="submit"].alternative:active {
+.new-expense button.alternative:hover,
+.new-expense button.alternative:active {
   background-color: #ddb3f8;
 }

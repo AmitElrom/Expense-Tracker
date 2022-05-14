@@ -17,7 +17,7 @@ const schema = yup.object().shape({
     date: yup.string().required(`Date ${required}`)
 })
 
-const ExpenseForm = ({ onAddExpense }) => {
+const ExpenseForm = ({ onAddExpense, onCancel }) => {
 
     const { register, handleSubmit, setValue, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -71,7 +71,8 @@ const ExpenseForm = ({ onAddExpense }) => {
                     </div>
                 </div>
                 <div className='new-expense__actions' >
-                    <input type='submit' value='Add Expense' />
+                    <button className='expense-form__button' type='button' onClick={onCancel} >Cancel</button>
+                    <button className='expense-form__button' type='submit' >Add Expense</button>
                 </div>
             </form>
         </Card>
