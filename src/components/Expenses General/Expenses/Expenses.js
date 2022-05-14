@@ -27,11 +27,24 @@ const Expenses = ({ expenses: expensesFromApp }) => {
         return <ExpenseItem key={expense._id} expense={expense} />
     })
 
+    // const filteredExpenses = expensesFromApp.forEach(x => {
+    //     let date = new Date(x.date);
+    //     const expenseDate = date.toLocaleString('en-US', { year: 'numeric' })
+    //     if (expenseDate.toString() === filteredYear) {
+    //         return x;
+    //     }
+    // })
+
+    // const filteredExpensesComps = filteredExpenses.map(expense => {
+    //     return <ExpenseItem key={expense._id} expense={expense} />
+    // })
+
     return (
         <Card className='expenses' >
             <ExpensesFilter year={filteredYear} onSelectYear={selectedYearHandler} />
             <h2>Expenses</h2>
             {expensesComps}
+            {/* {filteredExpensesComps} */}
         </Card>
     )
 }
